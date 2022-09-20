@@ -1,0 +1,83 @@
+.dashboard{
+    background-color: rgb(233, 177, 72);
+    height: 100%;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    width: 65rem;
+    padding: 2rem;
+    display: flex;
+    gap: 4rem;
+}
+
+.over-dash{
+    height: 80%;
+}
+
+.inner-dash{
+    background-color: rgb(228, 203, 133);
+    width: 8rem;
+    height: 23%;
+    border-radius: 2rem;
+    padding: 3rem;
+    display: grid;
+    gap:4rem;   
+   
+}
+
+.profiler{
+    background-color: rgba(238, 235, 230, 0.555);
+    margin-top: 3rem;
+    height: 94%;
+    width: 20rem;
+    border-radius: 2rem;
+    padding:3rem;
+}
+
+.inner-pro{
+    display: grid;
+    justify-items: center;
+    width: 140%;
+    background-color: rgba(179, 107, 60, 0.425);
+    height: 43%;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.profile-pic{
+    height: inherit;
+    opacity: 1;
+    z-index: 1;
+}
+
+img{
+    width: 16rem;
+    object-fit:fill;
+    opacity: 0.9;
+    height: 15rem;
+    border-radius: 9rem;
+    z-index: 1;
+}
+
+.profile-info{
+    margin-top: 4rem;
+    height: 20rem;
+    width: 120%;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: rgba(243, 138, 1, 0.308);
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 3.2rem;
+    color:black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.pro{
+    margin-left: -2rem;
+}
+
+.pro span{
+    margin-left: 0.9rem;
+    width: 100%;
+    word-wrap:normal;
+}

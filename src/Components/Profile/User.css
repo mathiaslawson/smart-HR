@@ -1,0 +1,76 @@
+.user-container{
+    margin-left: 2rem;
+    margin-top: 3rem;
+    border-style: none;
+    background-color: rgb(230, 159, 68);
+    height: 40rem;
+    border-radius: 1rem;
+    width: 30rem;
+    display: grid;
+    justify-content: center;
+    padding: 0rem;
+    word-wrap: normal;
+    overflow: scroll;
+}
+
+.profile{
+    padding: 1rem;
+    background-color: rgb(247, 202, 144);
+    border-radius: 0.4rem;
+    width: 27rem;
+    height: 8rem;
+    border: none;
+    display: flex;
+    gap:5rem;
+    margin-top:2rem;
+}
+
+.profile:hover{
+    background-color: rgba(240, 188, 120, 0.89);
+    transition: background-color 200ms;
+}
+
+
+.image{
+    width: 4rem;
+    border-radius: 3rem;
+    height: 4.3rem;
+    margin-top: -1.3rem;
+}
+
+.image img{
+    width: inherit;
+    height:inherit;
+    border-radius: 9rem;
+}
+
+.stats{
+    height: inherit;
+    margin-left: -0.9rem;
+    display: grid;
+    margin-top: -1.4rem;
+    font-size: 1rem;
+}
+
+
+.inner-profile{
+    display: grid;
+    justify-items: left;
+}
+
+.user-name{
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.stack{
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+}
+
+.dash{
+    display: flex;
+    gap: 4rem;
+ background-color: antiquewhite;
+}
+

@@ -1,0 +1,26 @@
+.graph{
+    margin-left: 21.2%;
+    margin-top: -32rem;
+    width: 55%;
+    height: 31.3rem;
+    background-color: rgb(228, 155, 88);
+    border-radius: 2rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    gap:3rem
+}
+.over{
+    color:rgb(68, 63, 57);
+    padding-bottom: 2rem;
+    margin-top: 2rem;
+    margin-left: -7rem;
+    display: flex;
+    justify-content: center;
+}
+
+.rep{
+    display: grid;
+    margin-left: -7rem;
+    gap: 1rem;
+}
