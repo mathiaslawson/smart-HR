@@ -7,6 +7,11 @@ import Profile from './Components/Profile/Profile';
 //import Dummy from './Dummy'
 import Data from '../src/Components/Profile/Data'
 import ProgressPage from './Components/Profiler/ProgressPage';
+import Sidebar from './Components/Sidebar/Sidebar';
+import Home from './Routes/Home/Home';
+import Av from './Routes/AvailableStaff/Av';
+import Enroll from './Routes/Enroll/Enroll';
+import { BrowserRouter, Outlet, Route, Routes} from 'react-router-dom'
 
 
 
@@ -72,10 +77,11 @@ const [profileTemplate , setTemplate] = useState()
  
   return (
    <>
-   <Start />
+
+   {/* finised components  */}
 
    
-     <Entry 
+     {/* <Entry 
        newEntry ={newEntry}
        setNewEntry = {setNewEntry}
        setNewStack = {setNewStack}
@@ -90,17 +96,43 @@ const [profileTemplate , setTemplate] = useState()
 
   <div className='dash'>
     
-        <div className='user-container'> 
-        
+        <div className='user-container'>   
      <Profile 
        data={mydata}
            /> 
 
      </div>
      <ProgressPage /> 
-   </div> 
+   </div>  */}
 
-   
+
+
+
+{/* <Home /> */}
+
+<BrowserRouter>
+<Start />
+
+<div className='final-render'>
+<Sidebar />
+
+<Routes>
+     <Route path="/home" element ={ <Home />}/>
+     <Route path="/list" element ={ <Av />}/>
+     <Route path="/add" element ={ <Enroll/>}/>
+
+</Routes>
+
+</div>
+  
+
+</BrowserRouter>
+
+
+{/* <Entry /> */}
+
+
+
 
 
    </>

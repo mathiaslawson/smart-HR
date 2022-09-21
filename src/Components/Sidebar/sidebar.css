@@ -1,0 +1,31 @@
+.side-container{
+    background-color: whitesmoke;
+    width: 7rem;
+    height: 13.5rem;
+    padding: 0.9rem;
+}
+
+.side-{
+    display: grid;
+    height: 30%;
+}
+
+.side-btn{
+    width: 5rem;
+    height: 10rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    background-color: rgba(253, 181, 24, 0.842);
+}
+
+.side-btn:hover{
+    background-color: rgba(253, 180, 24, 0.993);
+}
+
+.side-icon{
+ width: 2.5rem;
+ height: 3.3em;
+ background-color: rgba(253, 181, 24, 0.842);
+}
+
