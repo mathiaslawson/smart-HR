@@ -1,4 +1,5 @@
 import React , { useState } from 'react'
+import base from '../../Routes/Enroll/Base'
 import profile1 from "./profile1.jpg"
 import profile2 from "../Profile/profile2.jpg"
 import profile3 from "../Profile/profile3.jpg"
@@ -8,7 +9,7 @@ import Dummy from './Dummy'
 
 export default function Profile({data, profileTemplate}) {
    
-       const profile =  data.map((member)=>{
+       const profile =  base.map((member)=>{
               return <button className='profile'>
                      <div className='inner-profile'>
                      <div className='user-name'>

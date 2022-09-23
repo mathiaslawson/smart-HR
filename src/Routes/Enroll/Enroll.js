@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './Enroll.css'
 import Data from '../../Components/Profile/Data'
 import Entry from '../../Components/Inputs/Entry'
+import base from './Base'
 
 function Enroll() {
     const [newEntry , setNewEntry ] = useState('')
@@ -12,7 +13,9 @@ function Enroll() {
    //mail 
    const [newMail, setNewMail] = useState('')
   
-      const [mydata, setMyData] = useState([...Data])
+      const [mydata, setMyData] = useState([])
+
+      
   
       
     const handleSubmit = (e) =>{
@@ -33,6 +36,22 @@ function Enroll() {
     ]))
   
     }
+
+    useEffect(()=>{
+          localStorage.setItem('data', JSON.stringify(mydata))
+    }, [mydata])
+
+
+    const retrieve = JSON.parse(localStorage.getItem('data'));
+    useEffect(()=>{
+      if(retrieve ){ setMyData(retrieve)}
+    }, [])
+
+
+    base.push(...mydata)
+
+
+
 
 
   return (
