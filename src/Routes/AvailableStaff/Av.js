@@ -15,7 +15,7 @@ function Av() {
     <div>
 <div className='user-container'>   
      <Profile 
-       data={mydata}
+      
            /> 
 
      </div>

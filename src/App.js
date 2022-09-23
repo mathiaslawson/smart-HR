@@ -12,6 +12,7 @@ import Home from './Routes/Home/Home';
 import Av from './Routes/AvailableStaff/Av';
 import Enroll from './Routes/Enroll/Enroll';
 import { BrowserRouter, Outlet, Route, Routes} from 'react-router-dom'
+import Overall from './Routes/Overall/Overall';
 
 
 
@@ -120,7 +121,7 @@ const [profileTemplate , setTemplate] = useState()
      <Route path="/home" element ={ <Home />}/>
      <Route path="/list" element ={ <Av />}/>
      <Route path="/add" element ={ <Enroll/>}/>
-
+     <Route path="/about" element ={ <Overall/>}/>
 </Routes>
 
 </div>

@@ -8,7 +8,7 @@ import profile5 from "../Profile/profile5.jpg"
 import Dummy from './Dummy'
 
 export default function Profile({data, profileTemplate}) {
-   
+
        const profile =  base.map((member)=>{
               return <button className='profile'>
                      <div className='inner-profile'>
