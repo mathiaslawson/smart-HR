@@ -78,39 +78,6 @@ const [profileTemplate , setTemplate] = useState()
  
   return (
    <>
-
-   {/* finised components  */}
-
-   
-     {/* <Entry 
-       newEntry ={newEntry}
-       setNewEntry = {setNewEntry}
-       setNewStack = {setNewStack}
-       setNewRole = {setNewRole}
-       handleSubmit = {handleSubmit}
-       setNewMail = {setNewMail}
-       newMail = {newMail}
-       newRole = {newRole}
-       newStack = {newStack}
-     />
- 
-
-  <div className='dash'>
-    
-        <div className='user-container'>   
-     <Profile 
-       data={mydata}
-           /> 
-
-     </div>
-     <ProgressPage /> 
-   </div>  */}
-
-
-
-
-{/* <Home /> */}
-
 <BrowserRouter>
 <Start />
 
@@ -119,8 +86,8 @@ const [profileTemplate , setTemplate] = useState()
 
 <Routes>
      <Route path="/home" element ={ <Home />}/>
-     <Route path="/list" element ={ <Av />}/>
      <Route path="/add" element ={ <Enroll/>}/>
+    <Route path="/list" element ={ <Av />}/>
      <Route path="/about" element ={ <Overall/>}/>
 </Routes>
 
@@ -128,13 +95,6 @@ const [profileTemplate , setTemplate] = useState()
   
 
 </BrowserRouter>
-
-
-{/* <Entry /> */}
-
-
-
-
 
    </>
   );

@@ -5,8 +5,10 @@ import base from '../Enroll/Base';
 
 import { RadialBarChart, RadialBar,BarChart, Tooltip, Legend, Bar, CartesianGrid, XAxis, YAxis } from 'recharts'
 
+var retrieve = JSON.parse(localStorage.getItem('data'));
+  console.log(retrieve)
 
-const list = base.map((member)=>{
+const list = retrieve.map((member)=>{
     return <button className='s-profile'>
     <div className='btn-content'>
    
@@ -16,6 +18,9 @@ const list = base.map((member)=>{
     </div>
 </button>
 })
+
+
+
 
 const data = [
     {
@@ -89,6 +94,7 @@ const data = [
 function Overall() {
   return (
   <>
+
 
 
 <div className='ov-main'>

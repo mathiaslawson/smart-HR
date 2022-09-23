@@ -12,8 +12,7 @@ function Enroll() {
    const [newRole, setNewRole] = useState('')
    //mail 
    const [newMail, setNewMail] = useState('')
-  
-      const [mydata, setMyData] = useState([])
+  const [mydata, setMyData] = useState([])
 
       
   
@@ -33,8 +32,12 @@ function Enroll() {
        mail: newMail,
        role: newRole,
      }  
+     
     ]))
-  
+
+   base.push([...retrieve])
+   
+    
     }
 
     useEffect(()=>{
@@ -42,17 +45,13 @@ function Enroll() {
     }, [mydata])
 
 
-    const retrieve = JSON.parse(localStorage.getItem('data'));
+    var retrieve = JSON.parse(localStorage.getItem('data'));
     useEffect(()=>{
       if(retrieve ){ setMyData(retrieve)}
     }, [])
 
 
-    base.push(...mydata)
-
-
-
-
+    
 
   return (
     <div className='entry-container'><Entry 

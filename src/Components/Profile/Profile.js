@@ -1,15 +1,14 @@
-import React , { useState } from 'react'
+import React , { useState , useEffect } from 'react'
 import base from '../../Routes/Enroll/Base'
-import profile1 from "./profile1.jpg"
-import profile2 from "../Profile/profile2.jpg"
-import profile3 from "../Profile/profile3.jpg"
-import profile4 from "../Profile/profile4.jpg"
-import profile5 from "../Profile/profile5.jpg"
-import Dummy from './Dummy'
 
-export default function Profile({data, profileTemplate}) {
+export default function Profile() {
 
-       const profile =  base.map((member)=>{
+
+  var retrieve = JSON.parse(localStorage.getItem('data'));
+  console.log(retrieve)
+
+
+       const profile =  retrieve.map((member)=>{
               return <button className='profile'>
                      <div className='inner-profile'>
                      <div className='user-name'>
