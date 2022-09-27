@@ -11,10 +11,9 @@ function Av() {
     
   
   return (
-    <div>
+    <div className='av-whole'>
 <div className='user-container'>   
-     <Profile       
-           /> 
+     <Profile/> 
      </div>  
     </div>
   )

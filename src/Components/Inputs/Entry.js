@@ -2,9 +2,9 @@ import React from 'react'
 import './Entry.css'
 
 
-export default function Entry({newEntry, setNewEntry, handleSubmit, newStack, setNewStack, setNewRole, newRole, setNewMail, newMail}) {
+export default function Entry({newEntry, setNewEntry, handleSubmit, newStack, setNewStack, setNewRole, newRole, setNewMail, newMail, newComp, setNewComp, setp2p, setnewRelation, p2p, newRelation}) {
 
-  return (
+  return (<div className='w_form'>
     <form onSubmit={handleSubmit}>
         <div  className='entry-container'>
 
@@ -65,7 +65,50 @@ export default function Entry({newEntry, setNewEntry, handleSubmit, newStack, se
 
             </div>
 
+            
+
         </div>
     </form>
+
+
+    <div className='stats_d'>
+        <div className='stats-h'>
+            Projects completed
+        </div>
+        <input
+          type="number"
+          required
+          value ={newComp}
+          onChange = {(e)=>{setNewComp(e.target.value)}}
+        ></input>
+        <br /><br />
+        <div className='stats-h'>
+            Reporting Days
+        </div>   
+        <input
+         type = "number"
+         required
+         value = {newRelation}
+         onChange = {(e)=>{setnewRelation(e.target.value)}}
+        ></input>
+        <br /><br />
+        <div className='stats-h'>
+            P2P Assesment
+        </div>
+        
+        <input
+         type = "number"
+         required
+         value = {p2p}
+         onChange = {(e)=>{setp2p(e.target.value)}}
+        ></input>
+    </div>
+
+
+
+  </div>
+    
+
+
   )
 }

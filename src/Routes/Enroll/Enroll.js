@@ -14,7 +14,16 @@ function Enroll() {
    const [newMail, setNewMail] = useState('')
   const [mydata, setMyData] = useState([])
 
-      
+  //work ethics = completed projects , Reporting Days, Interpersonal Work Relations
+
+  //completed projects 
+  const [newComp, setNewComp] = useState('')
+
+  //Reporting Dats
+  const [newRelation, setnewRelation] = useState('')
+
+  //P2p Assesments 
+  const [p2p , setp2p] = useState('')
   
       
     const handleSubmit = (e) =>{
@@ -24,6 +33,9 @@ function Enroll() {
       setNewStack('');
       setNewRole('');
       setNewMail('');
+      setNewComp('');
+      setp2p('');
+      setnewRelation('');
     
       setMyData(([...mydata,
       {
@@ -31,6 +43,8 @@ function Enroll() {
        stacks: newStack,
        mail: newMail,
        role: newRole,
+       comp: newComp,
+       p2p: p2p
      }  
      
     ]))
@@ -61,6 +75,12 @@ function Enroll() {
     setNewRole = {setNewRole}
     handleSubmit = {handleSubmit}
     setNewMail = {setNewMail}
+    setNewComp = {setNewComp}
+    setnewRelation = {setnewRelation}
+    setp2p = {setp2p}
+    newRelation = {newRelation}
+    p2p = {p2p}
+    newComp = {newComp}
     newMail = {newMail}
     newRole = {newRole}
     newStack = {newStack}

@@ -1,97 +1,129 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Overall.css'
 
-import base from '../Enroll/Base';
-
 import { RadialBarChart, RadialBar,BarChart, Tooltip, Legend, Bar, CartesianGrid, XAxis, YAxis } from 'recharts'
+import { compareAsc, set } from 'rsuite/esm/utils/dateUtils'
+import { map } from 'rsuite/esm/utils/ReactChildren'
 
-var retrieve = JSON.parse(localStorage.getItem('data'));
-  console.log(retrieve)
-
-const list = retrieve.map((member)=>{
-    return <button className='s-profile'>
-    <div className='btn-content'>
-   
-          <span>{member.name}</span>
-          <span>{member.mail}</span>
-          <span>{member.role}</span>
-    </div>
-</button>
-})
-
-
-
-
-const data = [
-    {
-      "name": "Work Ethics (2021/2022)",
-      "uv": 4000,
-      "pv": 2400
-    },
-    {
-      "name": "Completed Projects (2021/2022)",
-      "uv": 3000,
-      "pv": 1398
-    },
-    {
-      "name": "Reporting Days(2021/2022)",
-      "uv": 2000,
-      "pv": 9800
-    },
-    {
-      "name": "Interpersonal Work Relations(2021/2022",
-      "uv": 2780,
-      "pv": 3908
-    }
-  ]
-
-  const data2 = [
-    {
-      "name": "18-24",
-      "uv": 31.47,
-      "pv": 2400,
-      "fill": "#8884d8"
-    },
-    {
-      "name": "25-29",
-      "uv": 26.69,
-      "pv": 4567,
-      "fill": "#83a6ed"
-    },
-    {
-      "name": "30-34",
-      "uv": -15.69,
-      "pv": 1398,
-      "fill": "#8dd1e1"
-    },
-    {
-      "name": "35-39",
-      "uv": 8.22,
-      "pv": 9800,
-      "fill": "#82ca9d"
-    },
-    {
-      "name": "40-49",
-      "uv": -8.63,
-      "pv": 3908,
-      "fill": "#a4de6c"
-    },
-    {
-      "name": "50+",
-      "uv": -2.63,
-      "pv": 4800,
-      "fill": "#d0ed57"
-    },
-    {
-      "name": "unknow",
-      "uv": 6.67,
-      "pv": 4800,
-      "fill": "#ffc658"
-    }
-  ]
-  
 
 function Overall() {
+
+let n = '';
+
+  const handleClick = event =>{
+    const check_mail = event.currentTarget.childNodes[0].children[1].innerHTML;
+    const check_name = event.currentTarget.childNodes[0].children[0].innerHTML;
+     retrieve.filter((m)=>{
+     if((m.mail === check_mail &&  m.name === check_name)){
+      data[0].uv = Number(m.comp)
+      console.log(typeof data[0].uv)
+      console.log(data)
+    }   
+   })
+  }
+  
+
+  var retrieve = JSON.parse(localStorage.getItem('data'));
+  
+  
+  const list = retrieve.map((member)=>{
+      return <button className='s-profile' onClick={handleClick}>
+      <div className='btn-content'>
+     
+            <span>{member.name}</span>
+            <span>{member.mail}</span>
+            <span>{member.role}</span>
+      </div>
+  </button>
+  })
+  
+  
+  
+  
+  const data = [
+      {
+        "name": "Work Ethics (2021/2022)",
+        "uv": 0,
+        "pv": 2400
+      },
+      {
+        "name": "Completed Projects (2021/2022)",
+        "uv": 3000,
+        "pv": 1398
+      },
+      {
+        "name": "P2P(2021/2022)",
+        "uv": 2000,
+        "pv": 9800
+      },
+    ]
+
+    console.log(data)
+  
+    const data2 = [
+      {
+        "name": "18-24",
+        "uv": 31.47,
+        "pv": 2400,
+        "fill": "#8884d8"
+      },
+      {
+        "name": "25-29",
+        "uv": 26.69,
+        "pv": 4567,
+        "fill": "#83a6ed"
+      },
+      {
+        "name": "30-34",
+        "uv": -15.69,
+        "pv": 1398,
+        "fill": "#8dd1e1"
+      },
+      {
+        "name": "35-39",
+        "uv": 8.22,
+        "pv": 9800,
+        "fill": "#82ca9d"
+      },
+      {
+        "name": "40-49",
+        "uv": -8.63,
+        "pv": 3908,
+        "fill": "#a4de6c"
+      },
+      {
+        "name": "50+",
+        "uv": -2.63,
+        "pv": 4800,
+        "fill": "#d0ed57"
+      },
+      {
+        "name": "unknow",
+        "uv": 6.67,
+        "pv": 4800,
+        "fill": "#ffc658"
+      }
+    ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
   <>
 
@@ -135,19 +167,8 @@ function Overall() {
 </RadialBarChart>  
 </div>
 <div>
-        <RadialBarChart 
-  width={630} 
-  height={450} 
-  innerRadius="10%" 
-  outerRadius="80%" 
-  data={data2} 
-  startAngle={180} 
-  endAngle={0}
->
-  <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey='uv' />
-  <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" />
-  <Tooltip />
-</RadialBarChart>  
+      
+ 
 </div>
         </div> 
 </div>

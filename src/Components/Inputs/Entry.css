@@ -6,11 +6,13 @@
     margin-top: 5rem;
     font-size: 1.5rem;
     gap: 2rem;
+    margin-top: 2rem;
+
 }
 
 .entry-container--{
     background-color: rgb(218, 194, 159);
-    width: 200%;
+    width: 360%;
     text-align: center;
     padding: 1rem;
     border-radius: 2rem;
@@ -60,5 +62,20 @@ label{
 .entry-btn:hover{
      background-color: rgb(218, 194, 159);
      transition: background-color 0.4s;
+}
+
+.w_form{
+    display: flex;
+    gap:26rem;
+}
+
+.stats_d{
+    margin-top:12rem;
+    height: 2rem;
+    width: 20rem;
+}
+
+.stats-h{
+    margin-left:3.7rem;
 }
 
