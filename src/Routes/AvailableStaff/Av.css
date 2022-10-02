@@ -1,0 +1,20 @@
+.entry-container{
+    display: grid;
+    margin-left: 30rem;
+}
+
+.av-whole{
+    display: flex;
+    gap:3rem;
+    display: flex;
+    justify-content: left;
+}
+
+.av-profile{
+    background-color: rgba(128, 128, 128, 0.055);
+    width: 50rem;
+    height: 50rem;
+    margin-top: 1.6rem;
+    border-radius: 0.6rem;
+
+}
