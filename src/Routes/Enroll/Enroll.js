@@ -6,22 +6,22 @@ import base from './Base'
 import axios from 'axios'
 
 function Enroll() {
-    const [newEntry , setNewEntry ] = useState('')
+    const [name , setNewEntry ] = useState('')
     //stack
-   const [newStack, setNewStack] = useState('')
+   const [stack, setNewStack] = useState('')
    //role
-   const [newRole, setNewRole] = useState('')
+   const [role, setNewRole] = useState('')
    //mail 
-   const [newMail, setNewMail] = useState('')
+   const [mail, setNewMail] = useState('')
   const [mydata, setMyData] = useState([])
 
   //work ethics = completed projects , Reporting Days, Interpersonal Work Relations // base metric system developed by @ingucell 
 
   //completed projects 
-  const [newComp, setNewComp] = useState('')
+  const [projectsCompleted, setNewComp] = useState('')
 
   //Reporting Dats
-  const [newRelation, setnewRelation] = useState('')
+  const [reportingDays, setnewRelation] = useState('')
 
   //P2p Assesments 
   const [p2p , setp2p] = useState('')
@@ -31,7 +31,7 @@ function Enroll() {
       
     const handleSubmit = async (e) =>{
       e.preventDefault();
-      if(!newEntry || !newStack || !newRole || !newMail) return;
+      if(!name || !stack || !role || !mail) return;
       setNewEntry('');
       setNewStack('');
       setNewRole('');
@@ -42,19 +42,21 @@ function Enroll() {
     
       setMyData(([...mydata,
       {
-       name: newEntry,
-       stacks: newStack,
-       mail: newMail,
-       role: newRole,
-       comp: newComp,
+       name: name,
+       stacks: stack,
+       mail: mail,
+       role: role,
+       projectsCompleted: projectsCompleted,
        p2p: p2p
      }  
      
     ]))
 
+
+
       try{
         await axios.post("http://localhost:5000/fontend",{
-          newEntry, newMail, newRole, newStack, newComp, p2p
+        name, mail, role, stack, projectsCompleted, p2p
          
         })
     } catch (error){
@@ -82,7 +84,7 @@ function Enroll() {
 
   return (
     <div className='entry-container'><Entry 
-    newEntry ={newEntry}
+    name ={name}
     setNewEntry = {setNewEntry}
     setNewStack = {setNewStack}
     setNewRole = {setNewRole}
@@ -91,12 +93,12 @@ function Enroll() {
     setNewComp = {setNewComp}
     setnewRelation = {setnewRelation}
     setp2p = {setp2p}
-    newRelation = {newRelation}
+    newRelation = {reportingDays}
     p2p = {p2p}
-    newComp = {newComp}
-    newMail = {newMail}
-    newRole = {newRole}
-    newStack = {newStack}
+    projectsCompleted = {projectsCompleted}
+    mail = {mail}
+    role = {role}
+    stack = {stack}
   /></div>
   )
 }
