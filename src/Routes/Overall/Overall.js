@@ -131,7 +131,7 @@ const test_profile  =<div className='ov-inner-profiler'>
         <div className='stats--'>
            <h2>Reporting Days</h2>
            <div>
-        <CountUp start={0} end={36} delay={0} >
+        <CountUp start={0} end={relayed.reportingDays} delay={0} >
   {({ countUpRef }) => (
     <div>
       <span ref={countUpRef} className='counts'/>
@@ -175,70 +175,34 @@ const list = result.map((m)=>{
    </button>
 })
 
+const we_optimal = (100 * 100) * 1
+const we_gain = ((relayed.reportingDays) * 100)/1
+const skill_optimal =  ((1) * 100)/2 * 100
+const skill_gain = ((relayed.projectsCompleted)*100)/2 * 100
+
+const total_optimal = (skill_optimal + we_optimal) /2
+const total_gain = (we_gain + we_optimal) /2
+
   const data = [
       {
-        "name": "Work Ethics(2021/2022)",
-        "uv": (relayed.projectsCompleted) * 100,
-        "pv": (relayed.p2p) * 100
+        "name": "JAN (WE) (W1)",
+        "optimal":  we_optimal,
+        "gain": we_gain
       },
       {
-        "name": "Completed Projects(2021/2022)",
-        "uv": (relayed.projectsCompleted) * 100,
-        "pv": 1398
+        "name": "JAN (SKILL) (W1)",
+        "optimal": skill_optimal,
+        "gain": skill_gain
       },
       {
-        "name": "P2P(2021/2022)",
-        "uv": 2000,
-        "pv": 9800
+        "name": "JAN (TOTAL) (W1))",
+        "optimal": total_optimal,
+        "gain": total_gain
       },
     ]
 
   
-    const data2 = [
-      {
-        "name": "18-24",
-        "uv": 31.47,
-        "pv": 2400,
-        "fill": "#8884d8"
-      },
-      {
-        "name": "25-29",
-        "uv": 26.69,
-        "pv": 4567,
-        "fill": "#83a6ed"
-      },
-      {
-        "name": "30-34",
-        "uv": -15.69,
-        "pv": 1398,
-        "fill": "#8dd1e1"
-      },
-      {
-        "name": "35-39",
-        "uv": 8.22,
-        "pv": 9800,
-        "fill": "#82ca9d"
-      },
-      {
-        "name": "40-49",
-        "uv": -8.63,
-        "pv": 3908,
-        "fill": "#a4de6c"
-      },
-      {
-        "name": "50+",
-        "uv": -2.63,
-        "pv": 4800,
-        "fill": "#d0ed57"
-      },
-      {
-        "name": "unknow",
-        "uv": 6.67,
-        "pv": 4800,
-        "fill": "#ffc658"
-      }
-    ]
-
+  
 
     //workethics = if 1 r_days : work ethics =  100
                  // then. 3/5 : ???  
@@ -276,8 +240,8 @@ const list = result.map((m)=>{
   <YAxis />
   <Tooltip />
   <Legend />
-  <Bar dataKey="pv" fill="#8884d8" />
-  <Bar dataKey="uv" fill="#82ca9d" />
+  <Bar dataKey="optimal" fill="#8884d8" />
+  <Bar dataKey="gain" fill="#82ca9d" />
 </BarChart>
             
          </div>
@@ -296,8 +260,8 @@ const list = result.map((m)=>{
   <CartesianGrid strokeDasharray="3 3" />
   <Tooltip />
   <Legend verticalAlign="top" height={36}/>
-  <Line name="pv of pages" type="monotone" dataKey="pv" stroke="#8884d8" />
-  <Line name="uv of pages" type="monotone" dataKey="uv" stroke="#82ca9d" />
+  <Line name="Optimal Staff can gain" type="monotone" dataKey="optimal" stroke="#8884d8" />
+  <Line name="Score gained" type="monotone" dataKey="gain" stroke="#82ca9d" />
 </LineChart>
 </div>
 
