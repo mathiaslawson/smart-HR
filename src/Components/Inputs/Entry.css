@@ -11,13 +11,13 @@
 }
 
 .entry-container--{
-    background-color: rgb(218, 194, 159);
+    background-color: #8884d8;
     width: 360%;
     text-align: center;
     padding: 1rem;
     border-radius: 2rem;
     position: relative;
-    left: -9rem;
+    left: -12rem;
 }
 
 input{
@@ -78,4 +78,13 @@ label{
 .stats-h{
     margin-left:3.7rem;
 }
+
+.spinner{
+    position: relative;
+    top:-3rem;
+    left:32rem;
+    font-size: 1.2;
+    color:rgb(82, 61, 10);
+}
+
 

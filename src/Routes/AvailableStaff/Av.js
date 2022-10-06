@@ -7,15 +7,12 @@ import base from '../Enroll/Base'
 
 function Av() {
 
-  console.log(base)
-    
-  
   return (
-    <div className='av-whole'>
-<div className='user-container'>   
-     <Profile/> 
-     </div>  
-    </div>
+   <>
+    <div className='profile-container'>
+       <Profile/> 
+      </div>
+   </>     
   )
 }
 

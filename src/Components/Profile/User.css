@@ -1,14 +1,14 @@
 .user-container{
     margin-left: 2rem;
-    margin-top: 1.7rem;
+    margin-top: 1rem;
     border-style: none;
-    background-color: rgb(230, 159, 68);
+    background-color: rgba(128, 128, 128, 0.082);
     height: 49rem;
     border-radius: 1rem;
-    padding-bottom: 2rem;
-    width: 53rem;
+    padding-bottom: 1rem;
+    width: 100rem;
     display: grid;
-    justify-content: left;
+    grid-template-rows: auto auto auto;
     padding-left: 1rem;
     word-wrap: normal;
     overflow: scroll;
@@ -16,19 +16,19 @@
 
 .profile{
     padding: 1rem;
-    background-color: rgb(247, 202, 144);
+    background-color: #8884d8;
     border-radius: 0.4rem;
-    width: 50rem;
-    height: 8rem;
+    width: 40rem;
+    height: 5rem;
     border: none;
     display: flex;
-    gap:5rem;
-    margin-top:2rem;
+    margin-top:1rem;
 }
 
 .profile:hover{
-    background-color: rgba(240, 188, 120, 0.89);
+    background-color:#746eec ;
     transition: background-color 200ms;
+    cursor: pointer;
 }
 
 
@@ -57,6 +57,7 @@
 .inner-profile{
     display: grid;
     justify-items: left;
+    margin-top: -0rem;
 }
 
 .user-name{
@@ -74,4 +75,97 @@
     gap: 4rem;
  background-color: antiquewhite;
 }
+
+.heading{
+    margin-left: 0.4rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    color:rgb(114, 114, 114);
+}
+
+.del{
+  position: relative;
+   left:40rem;
+   top:-20rem;
+}
+
+
+.body{
+    filter: blur(13px);
+}
+
+.pop-up{
+    display:grid;
+    justify-content: center;
+    position: absolute;
+    top:20rem;
+    left:44rem;
+    z-index: 1;
+   
+}
+
+.pop-inner{
+       background-color: #8884d8;
+       width:30rem;
+       height: 15rem;
+       border-radius: 1rem;
+       padding: 1rem;
+       display: none;
+       box-shadow: 1px 20px 20px rgba(86, 122, 202, 0.247);
+      
+    }
+    .close{
+        margin-left: 26rem;
+    }
+
+    .close:hover{
+  cursor: pointer;
+    }
+
+
+    .del-icon:hover{
+   cursor: pointer;
+    }
+
+    .pop-icons{
+        display: flex;
+        gap:3rem;
+        margin-left: 8rem;
+        margin-top: 1.4rem;
+    }
+
+    .edit-icons:hover{
+         cursor: pointer; 
+    }
+
+    .refresh-icons:hover{
+        cursor: pointer;
+    }
+
+    .mail{
+        font-size: 1rem;
+        display: flex;
+        gap:1rem;
+        font-weight: bold;
+    }
+    .name{
+        font-size: 1rem;
+        display: flex;
+        gap:1rem;
+        font-weight: bold;
+    }
+  
+    .del-notice{
+        background-color: rgb(247, 85, 85);
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 0.7rem;
+        border-radius: 1rem;
+        color: white;
+        display: none;
+        margin-top: 2rem;
+    }
+  
+   
 

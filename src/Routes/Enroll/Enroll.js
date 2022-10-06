@@ -30,57 +30,25 @@ function Enroll() {
   
       
     const handleSubmit = async (e) =>{
-      e.preventDefault();
-      if(!name || !stack || !role || !mail) return;
-      setNewEntry('');
-      setNewStack('');
-      setNewRole('');
-      setNewMail('');
-      setNewComp('');
-      setp2p('');
-      setnewRelation('');
-    
-      setMyData(([...mydata,
-      {
-       name: name,
-       stacks: stack,
-       mail: mail,
-       role: role,
-       projectsCompleted: projectsCompleted,
-       p2p: p2p
-     }  
-     
-    ]))
-
-
-
+      
       try{
         await axios.post("http://localhost:5000/fontend",{
-        name, mail, role, stack, projectsCompleted, p2p
+        name, mail, role, stack, projectsCompleted, reportingDays,p2p
          
         })
     } catch (error){
             console.log(error)
-    }
-
-  //  base.push([...retrieve])
-   
+    }   
     
+    if(!name || !mail) return;
+    setNewEntry('');
+    setNewStack('');
+    setNewRole('');
+    setNewMail('');
+    setNewComp('');
+    setp2p('');
+    setnewRelation('');
     }
-
-    // useEffect(()=>{
-    //       localStorage.setItem('data', JSON.stringify(mydata))
-    // }, [mydata])
-
-
-    // var retrieve = JSON.parse(localStorage.getItem('data'));
-    // useEffect(()=>{
-    //   if(retrieve ){ setMyData(retrieve)}
-    // }, [])
-
-
-
-    
 
   return (
     <div className='entry-container'><Entry 
@@ -93,7 +61,7 @@ function Enroll() {
     setNewComp = {setNewComp}
     setnewRelation = {setnewRelation}
     setp2p = {setp2p}
-    newRelation = {reportingDays}
+    reportingDays = {reportingDays}
     p2p = {p2p}
     projectsCompleted = {projectsCompleted}
     mail = {mail}

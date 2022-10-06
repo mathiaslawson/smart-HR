@@ -16,16 +16,16 @@
     border: none;
     border-radius: 0.5rem;
     font-size: 0.8rem;
-    background-color: rgba(253, 181, 24, 0.842);
+    background-color: #82ca9d;
 }
 
 .side-btn:hover{
-    background-color: rgba(253, 180, 24, 0.993);
+    background-color: #5fac7d;
 }
 
 .side-icon{
  width: 2.5rem;
  height: 3.3em;
- background-color: rgba(253, 181, 24, 0.842);
+ background-color: #82ca9d;
 }
 

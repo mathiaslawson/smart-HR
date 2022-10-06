@@ -1,11 +1,51 @@
-import React from 'react'
+import { ContentPasteOffSharp, Done } from '@mui/icons-material';
+import React, {Component, useState} from 'react'
 import './Entry.css'
+import "bootstrap/dist/css/bootstrap.min.css"
+import {useForm } from 'react-hook-form'
 
+export default function Entry({newEntry, setNewEntry, handleSubmit, newStack, setNewStack, setNewRole, newRole, setNewMail, newMail, newComp, setNewComp, setp2p, setnewRelation, p2p, reportingDays}) {
+ 
 
-export default function Entry({newEntry, setNewEntry, handleSubmit, newStack, setNewStack, setNewRole, newRole, setNewMail, newMail, newComp, setNewComp, setp2p, setnewRelation, p2p, newRelation}) {
+    const [ spinner , setspinner ]  = useState()
+    const [firststate , setFirstState] = useState("")
+     const [toggle, setToggle] = useState(true)
+
+     
+     let fetchData = () =>{
+      
+        setspinner(<div>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Sending Records to Storage ...
+            </div>)
+        
+       setFirstState(<div>Add</div>)
+
+    return <p>{toggle === false ? firststate : spinner}</p>
+        }
+   
+   
+
+        const buttonToggle = () =>{
+            return firststate
+        }
+
+        const spinnerbutton = () =>{
+             
+        }
+     
+    
+    
 
   return (<div className='w_form'>
+
+  
+
+
+    
     <form onSubmit={handleSubmit}>
+
+      
         <div  className='entry-container'>
 
             <div className='entry-container--'>
@@ -60,14 +100,26 @@ export default function Entry({newEntry, setNewEntry, handleSubmit, newStack, se
                 </div>
 
                 <div className='btn-container'>
-                    <button className='entry-btn' onSubmit={handleSubmit}>Add Staff</button>
+                    <button className='entry-btn'onSubmit={handleSubmit} onClick={fetchData}>
+                               
+                      {
+                       "Add"
+                      }
+            </button>
+
+            <div  className='spinner'>
+                        {
+                            spinner
+                        }
+            </div>
                 </div>
 
+
+
             </div>
-
-            
-
         </div>
+
+       
     </form>
 
 
@@ -88,7 +140,7 @@ export default function Entry({newEntry, setNewEntry, handleSubmit, newStack, se
         <input
          type = "number"
          required
-         value = {newRelation}
+         value = {reportingDays}
          onChange = {(e)=>{setnewRelation(e.target.value)}}
         ></input>
         <br /><br />

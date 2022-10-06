@@ -1,5 +1,5 @@
 .home{
-    background-color: rgba(235, 215, 151, 0.432);
+    background-color: #8884d8;
     width: 43%;
     height: 20rem;
     margin-top: 2rem;
@@ -44,7 +44,7 @@ img{
 }
 .available-{
     margin-top: -2rem;
-    background-color:rgb(247, 202, 144);
+    background-color:#a1dab7;
     height: 40%;display: grid;
     align-content: center;
     color:black;
@@ -52,7 +52,7 @@ img{
     padding: 5rem;
     border-radius: 2rem;
     border: none;
-    box-shadow: 4px -3px 10px  rgba(206, 127, 53, 0.24);
+    box-shadow: 4px -3px 10px  rgba(0, 0, 0, 0.068);
     font-size: 0.8rem;
     font-weight: 500;
 }

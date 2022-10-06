@@ -1,54 +1,189 @@
-import React, {useState} from 'react'
-import './Overall.css'
+import React, {useState, useEffect} from 'react'
 
-import { RadialBarChart, RadialBar,BarChart, Tooltip, Legend, Bar, CartesianGrid, XAxis, YAxis } from 'recharts'
-import { compareAsc, set } from 'rsuite/esm/utils/dateUtils'
+import './Overall.css'
+import axios from 'axios'
+
+import { BarChart, Tooltip, Legend, Bar, CartesianGrid, XAxis, YAxis, Line, LineChart } from 'recharts'
+import { ReplyAllTwoTone, VideoCameraBack } from '@mui/icons-material'
 import { map } from 'rsuite/esm/utils/ReactChildren'
+import line from  './line.png'
+import name from './press-pass.png'
+import mail from './mail.png'
+import CountUp from 'react-countup'
+import profiler from './resume.png'
+import code from './code.png'
+
 
 
 function Overall() {
-
-let n = '';
-
-  const handleClick = event =>{
-    const check_mail = event.currentTarget.childNodes[0].children[1].innerHTML;
-    const check_name = event.currentTarget.childNodes[0].children[0].innerHTML;
-     retrieve.filter((m)=>{
-     if((m.mail === check_mail &&  m.name === check_name)){
-      data[0].uv = Number(m.comp)
-      console.log(typeof data[0].uv)
-      console.log(data)
-    }   
-   })
-  }
+ 
+//get requiest via axios to API
+  const [values, setProfile] = useState("")
+  const [relay, setrelay] = useState("")
+  const [relayed, setrelayed] = useState("")
   
 
-  var retrieve = JSON.parse(localStorage.getItem('data'));
-  
-  
-  const list = retrieve.map((member)=>{
-      return <button className='s-profile' onClick={handleClick}>
-      <div className='btn-content'>
-     
-            <span>{member.name}</span>
-            <span>{member.mail}</span>
-            <span>{member.role}</span>
+  useEffect(()=>{
+    axios.get("http://localhost:5000/avlist").then(function(response){
+      setProfile(response.data)
+    })
+    
+  }, [])
+
+var result = Object.entries(values)
+
+//console.log(result)
+const read_click =  async (event) =>{
+  event.preventDefault();
+    //get if from frontend
+       const first = event.target.children[1]
+       const mail = first.children[1].innerText
+       //console.log(typeof mail)
+      try{      
+     await axios.post("http://localhost:5000/ov",{
+          mail 
+        }).then(function(response){
+          setrelay(response.data)
+          const r = relay.data
+          setrelayed(r[0])
+       
+        })
+    } catch (error){
+            console.log(error)
+    }
+
+   
+}
+
+const test_profile  =<div className='ov-inner-profiler'>
+      <div className='ov--'>
+
+        <div className='ov-h'>
+
+        <div>
+        <img src={profiler} className="profiler-img"/>
+        </div>
+            <h2 className='ov-heading'>Profiler</h2>
+          
+        </div>
+
+      <div className='dis'>
+        <div>
+        <img src={name} />
+        </div>
+       
+              <span className='profiler-name'>{relayed.name}</span>
       </div>
-  </button>
-  })
+        
+      </div>
+      <div>
+        <div className='dis'>
+        <div>
+        <img src={mail} />
+        </div>
+        <span className='profiler-mail'> {relayed.mail}</span>
+        </div>        
+      </div>
+
+      <div>
+        <div className='dis'>
+        <div>
+        <img src={code} />
+        </div>
+        <span className='profiler-mail'> {relayed.stack}</span>
+        </div>        
+      </div>
+
+
+      <div className='ov-stats'>
+        <div className='stats--'>
+        <h2>Projects Completed</h2>
+        <div>
+        <CountUp start={0} end={relayed.projectsCompleted} delay={0} >
+  {({ countUpRef }) => (
+    <div>
+      <span ref={countUpRef} className='counts2 counts'/>
+    </div>
+  )}
+</CountUp>
+           
+        </div>
+        <div>
+          <img src={line} className="line"></img>
+        </div>
+        </div>
+        <div className='stats--'>
+        <h2>Peer to Peer Assesment</h2>
+        <div>
+        <CountUp start={0} end={relayed.p2p} delay={0} >
+  {({ countUpRef }) => (
+    <div>
+      <span ref={countUpRef} className='counts counts3'/>
+    </div>
+  )}
+</CountUp>
+           
+        </div>
+        <div>
+          <img src={line} className="line line-2"></img>
+        </div>
+        </div>
+        <div className='stats--'>
+           <h2>Reporting Days</h2>
+           <div>
+        <CountUp start={0} end={36} delay={0} >
+  {({ countUpRef }) => (
+    <div>
+      <span ref={countUpRef} className='counts'/>
+    </div>
+  )}
+</CountUp>
+           
+        </div>
+        </div>
+      </div>
+{/* Caution */}
+ <div className='caution'>
+    <icon>
+
+    </icon>
   
-  
-  
-  
+
+  <div>
+     This is the caution area
+  </div>
+ </div>
+
+     
+      
+  </div>
+
+
+
+const list = result.map((m)=>{
+  return <button className='profile' onClick={read_click}>{
+   
+      m.map((a)=>{
+        return <div className='inner-profile'>
+          <span >{a.name}</span>
+          <span>{a.mail}</span>
+          <span>{a.role}</span>
+          </div> 
+      })
+    
+  }
+   </button>
+})
+
   const data = [
       {
-        "name": "Work Ethics (2021/2022)",
-        "uv": 0,
-        "pv": 2400
+        "name": "Work Ethics(2021/2022)",
+        "uv": (relayed.projectsCompleted) * 100,
+        "pv": (relayed.p2p) * 100
       },
       {
-        "name": "Completed Projects (2021/2022)",
-        "uv": 3000,
+        "name": "Completed Projects(2021/2022)",
+        "uv": (relayed.projectsCompleted) * 100,
         "pv": 1398
       },
       {
@@ -58,7 +193,6 @@ let n = '';
       },
     ]
 
-    console.log(data)
   
     const data2 = [
       {
@@ -106,22 +240,13 @@ let n = '';
     ]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //workethics = if 1 r_days : work ethics =  100
+                 // then. 3/5 : ???  
+                       //workethics  ??? = (100 * 3/5) / 1
+                       
+    //completed projects = if 2 p's : p's done = 100
+                   //then 1/2 : ??
+                         //completed projects ??? = (2 * 1/2) /2                   
 
 
   return (
@@ -129,15 +254,23 @@ let n = '';
 
 
 
+
 <div className='ov-main'>
     <div className='ov-'>
          <div className='ov-profile-list'>
                  <div className='profiles'>
-                            {list}
+                  
+                  <div >
+                  {list}
+                  </div>
+                           
                  </div>
          </div>
          <div>
-         <BarChart width={1200} height={450} data={data}>
+
+
+      
+         <BarChart width={800} height={500} data={data}>
   <CartesianGrid strokeDasharray="3 3" />
   <XAxis dataKey="name" />
   <YAxis />
@@ -149,29 +282,26 @@ let n = '';
             
          </div>
 
-    </div>  
-    <div className='radial'>
-      <div>
-        <RadialBarChart 
-  width={630} 
-  height={450} 
-  innerRadius="10%" 
-  outerRadius="80%" 
-  data={data2} 
-  startAngle={180} 
-  endAngle={0}
->
-  <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey='uv' />
-  <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" />
+         {/* profile */}
+
+         <div className='ov-profiler'>
+{test_profile}
+</div>
+
+    </div  >  
+    <LineChart width={730} height={250} data={data}
+  margin={{ top: 5, right: 30, left: 20, bottom: 5 }} className="line-chart">
+  <XAxis dataKey="name" />
+  <YAxis />
+  <CartesianGrid strokeDasharray="3 3" />
   <Tooltip />
-</RadialBarChart>  
+  <Legend verticalAlign="top" height={36}/>
+  <Line name="pv of pages" type="monotone" dataKey="pv" stroke="#8884d8" />
+  <Line name="uv of pages" type="monotone" dataKey="uv" stroke="#82ca9d" />
+</LineChart>
 </div>
-<div>
-      
- 
-</div>
-        </div> 
-</div>
+
+
 </>
 
     
